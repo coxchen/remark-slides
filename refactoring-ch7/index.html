@@ -145,18 +145,6 @@ layout: false
 template: inverse
 
 ## Refactorings introduced in CH7
----
-
-# Refactorings introduced in CH7
-
-.left-column[
-#### all about abstractions
-]
-
-.right-column[
-1. *Decompose* Conditional .red[*]
-> encapsulate `raw computation logic` into **abstractions**!
-]
 
 ---
 
@@ -168,7 +156,34 @@ template: inverse
 
 .right-column[
 1. *Decompose* Conditional .red[*]
-> encapsulate `raw computation logic` into **abstractions**!
+   - conditions(contexts) -> behavior selection
+]
+---
+
+# Refactorings introduced in CH7
+
+.left-column[
+#### all about abstractions
+]
+
+.right-column[
+1. *Decompose* Conditional .red[*]
+   - conditions(contexts) -> behavior selection
+   - encapsulate `raw computation logic` into **abstractions**!
+]
+
+---
+
+# Refactorings introduced in CH7
+
+.left-column[
+#### all about abstractions
+]
+
+.right-column[
+1. *Decompose* Conditional .red[*]
+   - conditions(contexts) -> behavior selection
+   - encapsulate `raw computation logic` into **abstractions**!
 
 ```java
 if (date.before (SUMMER_START) || date.after(SUMMER_END))
@@ -188,34 +203,8 @@ else
 
 .right-column[
 1. *Decompose* Conditional .red[*]
-> encapsulate `raw computation logic` into **abstractions**!
-
-```java
-if (date.before (SUMMER_START) || date.after(SUMMER_END))
-    charge = quantity * _winterRate + _winterServiceCharge;
-else
-    charge = quantity * _summerRate;
-```
-=>
-```java
-if (notSummer(date))
-    charge = winterCharge(quantity);
-else
-    charge = summerCharge(quantity);
-```
-]
-
----
-
-# Refactorings introduced in CH7
-
-.left-column[
-#### all about abstractions
-]
-
-.right-column[
-1. *Decompose* Conditional .red[*]
-> encapsulate `raw computation logic` into **abstractions**!
+   - conditions(contexts) -> behavior selection
+   - encapsulate `raw computation logic` into **abstractions**!
 
 ```java
 if (date.before (SUMMER_START) || date.after(SUMMER_END))
@@ -230,11 +219,6 @@ if (notSummer(date))
 else
     charge = summerCharge(quantity);
 ```
-=>
-
-*if*  it's `not summer`, apply `winterCharge` with **quantity**
-
-*else*, apply `summerCharge` with **quantity**
 ]
 
 ---
@@ -297,6 +281,18 @@ template: inverse
 # Principles taken away
 
 1. Everything is an .red[**object**], even a *thought*
+
+---
+# Principles taken away
+
+1. Everything is an .red[**object**], even a *thought*
+2. Conditional structure in Object Systems?
+   - conditions(contexts) -> behavior selection
+
+---
+# Principles taken away
+
+1. Everything is an .red[**object**], even a *thought*
 2. Conditional structure in Object Systems?
    - conditions(contexts) -> behavior selection
 3. Conditional structure
@@ -305,6 +301,16 @@ template: inverse
      - merge of abstractions
      - balance of branches
    - multiple dispatch with polymorphic contexts
+
+---
+template: inverse
+
+## Open Questions
+---
+# Principles taken away
+
+1. Why do we refactor our code?
+2. Can we apply refactorings to .red[non]-object-oriented programs
 
 ---
 template: inverse
